@@ -38,7 +38,7 @@ const MainBanner = () => {
     {/* Explore Deals Button */}
     <Link
       to={"/products"}
-      className="group flex items-center gap-2 px-7 md:px-9 py-3  text-black hover:bg-primary-light hover:text-white transition rounded cursor-pointer"
+      className="group flex items-center gap-2 px-7 md:px-9 py-3   text-primary hover:text-primary-dull transition rounded cursor-pointer"
     >
       Explore Deals
       <img

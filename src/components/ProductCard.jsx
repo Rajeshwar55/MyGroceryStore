@@ -2,8 +2,7 @@ import React from "react";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 const ProductCard = ({product}) => {
-    const [count, setCount] = React.useState(0);
-   const {currency,addToCart,removeFromCart,cartItems,navigate} =useAppContext()
+   const {currency,addToCart,removeFromCart,cartItems} =useAppContext()
  
 
     return product &&(
