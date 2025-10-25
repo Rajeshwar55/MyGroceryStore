@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {assets} from "../assets/assets"
 import { NavLink } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 const Navbar = () => {
-   const [open, setOpen] = React.useState(false)
-   const {user,setUser,setShowUserLogin,navigate,searchQuery,setSearchQuery}=useAppContext();
+   const [open, setOpen] = useState(false)
+   const {user,setUser,setShowUserLogin,navigate,searchQuery,setSearchQuery,getCartCount,getCartAmount}=useAppContext();
    const Logout=async()=>{
    setUser(null);
    navigate('/');
@@ -33,7 +33,7 @@ const Navbar = () => {
 
                 <div className="relative cursor-pointer">
                     <img onClick={()=>navigate('/cart')} src={assets.nav_cart_icon} alt="cart" className='w-6 opacity-60' />
-                    <button className="absolute -top-2 -right-3 text-xs text-white bg-primary-dull w-[18px] h-[18px] rounded-full">3</button>
+                    <button className="absolute -top-2 -right-3 text-xs text-white bg-primary-dull w-[18px] h-[18px] rounded-full">{getCartCount()}</button>
                 </div>
                  {!user ? (
                       <button onClick={()=>setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-primary-dull hover:bg-primary transition text-white rounded-full">
