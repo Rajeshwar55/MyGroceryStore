@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 
 const SellerLogin = () => {
   const navigate = useNavigate();
   const { isSeller, setIsSeller } = useAppContext();
+  const[email,setEmail]=useState('');
+  const[password,setPassword] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const SellerLogin = () => {
 
         <div className="w-full">
           <input
+          onChange={(e)=>setEmail(e.target.value) } value={email}
             type="email"
             placeholder="Enter your email"
             className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary"
@@ -36,6 +39,8 @@ const SellerLogin = () => {
 
         <div className="w-full">
           <input
+          onChange={(e)=>setPassword(e.target.value)}
+          value={password}
             type="password"
             placeholder="Enter your password"
             className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary"
